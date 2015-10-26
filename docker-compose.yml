@@ -1,0 +1,11 @@
+backup:
+  image: nickbreen/mysql-backup-cron
+  external_links:
+    - local_db_1:mysql
+  command: /backup.sh
+  environment:
+    BUCKET: BUCKET/PREFIX/
+    REGION: REGION
+    ACCESS_KEY: KEY
+    SECRET_KEY: SECRET
+    DBS: db1 db2
