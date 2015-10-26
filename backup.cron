@@ -21,7 +21,7 @@
 #
 # m h  dom mon dow   who command
 
-SHELL=/bin/sh
+SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-* *    * * *    root /backup.sh && touch /.backup
+0 */8    * * *    root /backup.sh && touch /.backup

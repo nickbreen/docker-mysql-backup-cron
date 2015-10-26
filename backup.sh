@@ -6,6 +6,9 @@
 # Bailout if any command fails
 set -e
 
+# Fetch the environment
+. /etc/environment
+
 # Create a temporary directory to hold the backup files.
 DIR=$(mktemp -d)
 
