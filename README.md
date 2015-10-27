@@ -14,4 +14,6 @@ be set from the linked DB container.
 You must specify an AWS access key and secret key as well as the S3 bucket and
 optionally the prefix to store the backups in.
 
+You *must* specify the bucket (rather prefix) with a trailing slash, e.g. ```some-bucket/``` or ```some-bucket/some-prefix/```.
+
 See docker-compose.yml for an example of configuration.
