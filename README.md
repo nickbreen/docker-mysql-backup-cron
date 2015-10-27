@@ -8,8 +8,7 @@ A cronjob runs every 8 hours.  It backups all databases unless ```DBS```
 is specified as a space separated list of DB's to backup using ```mysqldump```.  
 The file are ```gzip```ed and uploaded to S3 via ```s3cmd```.
 
-The DB will be connected to as ```root``` and requires ```$MYSQL_ROOT_PASSWORD``` 
-be set from the linked DB container.
+The DB will be connected to as ```root``` and requires ```$MYSQL_ROOT_PASSWORD``` be set from the linked DB container.
 
 You must specify an AWS access key and secret key as well as the S3 bucket and
 optionally the prefix to store the backups in.
@@ -17,3 +16,10 @@ optionally the prefix to store the backups in.
 You *must* specify the bucket (rather prefix) with a trailing slash, e.g. ```some-bucket/``` or ```some-bucket/some-prefix/```.
 
 See docker-compose.yml for an example of configuration.
+
+# Usage
+
+```exec``` the command ```/backup.sh``` to take an immediate backup.
+
+```exec``` the command ```/restore.sh``` to list available backups to restore from. Then ```exec``` the command ```/restore.sh <filename of backup>``` to restore it.
+
