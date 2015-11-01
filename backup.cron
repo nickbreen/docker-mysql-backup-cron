@@ -22,7 +22,7 @@
 # m h  dom mon dow   who command
 
 SHELL=/bin/bash
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/mysql/bin
 
 # Run at strange (UTC) hours, (14,22,06 NZDT, 13,21,05 NZST)
 0 1,9,17    * * *    root /backup.sh && touch /.backup
