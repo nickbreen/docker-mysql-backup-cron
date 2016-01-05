@@ -6,9 +6,6 @@
 # Bailout if any command fails
 set -e
 
-# Fetch the environment
-. /etc/environment
-
 # Create a temporary directory to hold the backup files.
 DIR=$(mktemp -d)
 
@@ -24,11 +21,11 @@ else
 	# Backup each DB separately
 	for DB in $DBS
 	do
-		mysqldump -uroot -p$MYSQL_ENV_MYSQL_ROOT_PASSWORD -hmysql $DB | gzip > $DIR/$DB-$TS.sql.gz
+		mysqldump -uroot -p$MYSQL_ENV_MYSQL_ROOT_PASSWORD -hmysql -B $DB | gzip > $DIR/$DB-$TS.sql.gz
 	done
 fi
 
-# Upload the backups to S3 --region=$REGION 
+# Upload the backups to S3 --region=$REGION
 s3cmd -q --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY sync $DIR/ s3://$BUCKET
 
 # Clean up

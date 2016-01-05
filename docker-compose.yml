@@ -7,11 +7,13 @@ backup:
     BUCKET: BUCKET/PREFIX/
     ACCESS_KEY: KEY
     SECRET_KEY: SECRET
-    DBS: db1 
+    DBS: db1
+    CRON_TAB: |
+      # Run at strange (UTC) hours, (14,22,06 NZDT, 13,21,05 NZST)
+      0 1,9,17    * * *    /backup.sh
 
 db:
   image: mysql:5.5
   envronment:
     MYSQL_ROOT_PASSWORD: asecretpassword
     MYSQL_DATABASE: db1
-

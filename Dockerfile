@@ -1,14 +1,14 @@
-FROM mysql:5.5
+FROM nickbreen/cron
 
 MAINTAINER Nick Breen <nick@foobar.net.nz>
 
-RUN apt-get update -q && apt-get install -qy cron python-pip && apt-get clean -q && pip install s3cmd
+FROM nickbreen/cron
 
-COPY backup.cron /etc/cron.d/backup
-COPY backup.sh restore.sh entrypoint.sh /
+RUN DEBIAN_FRONTEND=noninteractive && \
+  apt-get -q update && \
+  apt-get -qy install mysql-client apache2-utils s3cmd && \
+  apt-get -q clean
 
 ENV ACCESS_KEY="" SECRET_KEY="" BUCKET="" DBS=""
 
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["cron", "-f", "-L", "0"]
+ENV CRON_TAB="0 1,9,17    * * *    /backup.sh"
