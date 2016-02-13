@@ -2,15 +2,14 @@ backup:
   image: nickbreen/mysql-backup-cron
   links:
     - db:mysql
-  command: /backup.sh
   environment:
     BUCKET: BUCKET/PREFIX/
     ACCESS_KEY: KEY
     SECRET_KEY: SECRET
     DBS: db1
-    CRON_TAB: |
+    CRON_D_BACKUP: |-
       # Run at strange (UTC) hours, (14,22,06 NZDT, 13,21,05 NZST)
-      0 1,9,17    * * *    /backup.sh
+      0 1,9,17    * * *   root /backup.sh
 
 db:
   image: mysql:5.5

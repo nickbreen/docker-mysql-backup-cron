@@ -3,6 +3,8 @@
 # Generate a (gzipped) dumpfile for each database specified in ${DBS}.
 # Upload to S3.
 
+. /etc/container_environment.sh
+
 # Bailout if any command fails
 set -e
 

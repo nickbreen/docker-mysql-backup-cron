@@ -4,8 +4,8 @@
 
 # This Image
 
-A cron job runs every 8 hours.  Override this by setting cron job spec's in the
-```CRON_TAB``` environment variable.
+A cron job runs every 8 hours.  Override this by setting cron job spec's in
+the ```CRON_D_BACKUP``` environment variable.
 
 It backups all databases, unless ```DBS```
 is specified as a space separated list of DB's to backup, using ```mysqldump```.  
@@ -17,15 +17,15 @@ be set from the linked DB container.
 You must specify an AWS access key and secret key as well as the S3 bucket and
 optionally the prefix to store the backups in.
 
-You *must* specify the bucket (rather prefix) with a trailing slash, e.g.
-```some-bucket/``` or ```some-bucket/some-prefix/```.
+You *must* specify the bucket (rather prefix) with a trailing slash,
+e.g. ```some-bucket/``` or ```some-bucket/some-prefix/```.
 
 See docker-compose.yml for an example of configuration.
 
 # Usage
 
-```exec``` the command ```/backup.sh``` to take an immediate backup.
+Use ```docker exec /backup.sh``` to take an immediate backup.
 
-```exec``` the command ```/restore.sh``` to list available backups to restore
-from. Then ```exec``` the command ```/restore.sh <filename of backup>``` to
+Use ```docker exec /restore.sh``` to list available backups to restore
+from. Then ```docker exec /restore.sh <filename of backup>``` to
 restore it.

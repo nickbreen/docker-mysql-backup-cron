@@ -3,6 +3,8 @@
 # Fetch a (gzipped) backup file from S3.
 # Restore it.
 
+. /etc/container_environment.sh
+
 # Bailout if any command fails
 set -e
 
