@@ -24,8 +24,8 @@ See docker-compose.yml for an example of configuration.
 
 # Usage
 
-Use ```docker exec /backup.sh``` to take an immediate backup.
+Use ```docker exec <container> /backup.sh``` to take an immediate backup.
 
-Use ```docker exec /restore.sh``` to list available backups to restore
+Use ```docker exec <container> /restore.sh``` to list available backups to restore
 from. Then ```docker exec /restore.sh <filename of backup>``` to
 restore it.
