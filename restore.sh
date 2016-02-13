@@ -17,7 +17,7 @@ else
 	DIR=$(mktemp -d)
 
 	# Get the backups from S3
-	s3cmd --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY get s3://$BUCKET$1 $DIR/S1
+	s3cmd --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY get $BUCKET$1 $DIR/S1
 
 	# Restore the DB
 	gunzip < $DIR/S1 | mysql -uroot -p$MYSQL_ENV_MYSQL_ROOT_PASSWORD -hmysql

@@ -28,7 +28,7 @@ else
 fi
 
 # Upload the backups to S3 --region=$REGION
-s3cmd -q --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY sync $DIR/ s3://$BUCKET
+s3cmd --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY sync $DIR/ $BUCKET
 
 # Clean up
 rm -rf $DIR

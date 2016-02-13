@@ -1,5 +1,6 @@
 backup:
-  image: nickbreen/mysql-backup-cron
+  #image: nickbreen/mysql-backup-cron
+  build: .
   links:
     - db:mysql
   environment:
@@ -9,10 +10,10 @@ backup:
     DBS: db1
     CRON_D_BACKUP: |-
       # Run at strange (UTC) hours, (14,22,06 NZDT, 13,21,05 NZST)
-      0 1,9,17    * * *   root /backup.sh
+      0 1,9,17    * * *   root /backup.sh | logger
 
 db:
   image: mysql:5.5
-  envronment:
+  environment:
     MYSQL_ROOT_PASSWORD: asecretpassword
     MYSQL_DATABASE: db1
