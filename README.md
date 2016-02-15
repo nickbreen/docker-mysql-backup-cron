@@ -1,7 +1,3 @@
-# Supported tags and respective `Dockerfile` links
-
-- [`latest` (*Dockerfile*)](https://github.com/nickbreen/docker-mysql-backup-cron/blob/master/Dockerfile)
-
 # This Image
 
 A cron job runs every 8 hours.  Override this by setting cron job spec's in
