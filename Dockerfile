@@ -9,6 +9,6 @@ RUN apt-get -qqy update && \
 
 ENV ACCESS_KEY="" SECRET_KEY="" BUCKET="" DBS=""
 
-ENV CRON_D_BACKUP="0 1,9,17    * * * root   /backup.sh | logger"
+ENV CRON_D_BACKUP="0 1,9,17    * * * root   /backup.sh | logger\n"
 
 COPY backup.sh restore.sh /

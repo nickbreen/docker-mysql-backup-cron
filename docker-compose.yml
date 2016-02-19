@@ -4,13 +4,13 @@ backup:
   links:
     - db:mysql
   environment:
-    BUCKET: BUCKET/PREFIX/
+    BUCKET: s3://BUCKET/[PREFIX/]
     ACCESS_KEY: KEY
     SECRET_KEY: SECRET
-    DBS: db1
-    CRON_D_BACKUP: |-
+    DBS: DB_NAME
+    CRON_D_BACKUP: |
       # Run at strange (UTC) hours, (14,22,06 NZDT, 13,21,05 NZST)
-      0 1,9,17    * * *   root /backup.sh | logger
+      * *    * * *   root /backup.sh | logger
 
 db:
   image: mysql:5.5
