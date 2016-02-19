@@ -11,7 +11,7 @@ set -e
 # Check that a backup is specified or list all backups!
 if [ -z "$1" ]
 then
-	s3cmd --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY ls s3://$BUCKET
+	s3cmd --access_key=$ACCESS_KEY --secret_key=$SECRET_KEY ls $BUCKET
 else
 	# Create a temporary directory to hold the backup files
 	DIR=$(mktemp -d)
