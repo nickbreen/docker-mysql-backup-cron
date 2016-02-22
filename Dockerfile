@@ -7,7 +7,7 @@ RUN apt-get -qqy update && \
   apt-get -qqy clean && \
   pip install s3cmd
 
-ENV ACCESS_KEY="" SECRET_KEY="" BUCKET="" DBS=""
+ENV ACCESS_KEY="" SECRET_KEY="" BUCKET="" DBS="" REGION="us-east-1"
 
 ENV CRON_D_BACKUP="0 1,9,17    * * * root   /backup.sh | logger\n"
 
