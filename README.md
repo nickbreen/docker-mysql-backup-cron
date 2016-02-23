@@ -16,6 +16,10 @@ optionally the prefix to store the backups in.
 You *must* specify the bucket (and prefix) with the `s3:` scheme and trailing
 slash; e.g. `s3://some-bucket/` or `s3://some-bucket/some-prefix/`.
 
+By default, the S3 region used is `us-east-1`.
+You can override it  with the REGION environment variable.
+See [the official amazon region names](http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for more informations.
+
 See docker-compose.yml for an example of configuration.
 
 # Usage
